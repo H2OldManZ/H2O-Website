@@ -5,10 +5,7 @@ import ButtonBase from '@material-ui/core/ButtonBase';
 import Container from '@material-ui/core/Container';
 import Typography from 'components/Typography/Typography.jsx';
 
-import img1 from "assets/img/panels/2.jpg";
-import img2 from "assets/img/panels/3.jpg";
-import img3 from "assets/img/panels/1.jpg";
-import img4 from "assets/img/panels/3.jpg";
+import { useStaticQuery, graphql } from 'gatsby'
 
 const styles = (theme) => ({
   root: {
@@ -90,37 +87,47 @@ const styles = (theme) => ({
 });
 
 function ProductCategories(props) {
+
+  const data = useStaticQuery(graphql`
+  query MyQuery {
+    allGraphCmsPanel(sort: {fields: order, order: ASC}) {
+      edges {
+        node {
+          id
+          href
+          name
+          order
+          width
+          image {
+            url
+          }
+        }
+      }
+    }
+  } 
+  `)
+
+  const panels = data.allGraphCmsPanel.edges
+
+  var images = []
+  console.log(data.allGraphCmsPanel.edges[0].node.name);
+
+  for (let i = 0; i < panels.length; i++) {
+    images.push(
+      {
+        url:  panels[i].node.image.url,
+        title: panels[i].node.name,
+        width: panels[i].node.width + "%",
+        href: panels[i].node.href,
+      }
+    )
+  
+  }
+  
   const { classes } = props;
 
-  const images = [
-    {
-      url: img1,
-      title: 'Get Connected',
-      width: '50%',
-      href: '/GetConnected',
-    },
-    {
-      url: img2,
-      title: 'Community Groups',
-      width: '50%',
-      href: '/CommunityGroups',
-    },
-    {
-      url: img3,
-      title: 'Sunday Service',
-      width: '50%',
-      href: 'WhatToExpect',
-    },
-    {
-      url: img4,
-      title: 'Something Else',
-      width: '50%',
-      href: '/Something'
-    },
-
-  ];
-
   return (
+    
     <Container className={classes.root} component="section">
       <Typography variant="h4" marked="center" align="center" component="h2">
         &nbsp;
