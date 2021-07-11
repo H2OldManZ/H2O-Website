@@ -98,7 +98,7 @@ function ProductCategories(props) {
         url:  panels[i].node.image.url,
         title: panels[i].node.name,
         width: panels[i].node.width + "%",
-        href: panels[i].node.href,
+        href: panels[i].node.href.toLowerCase(),
       }
     )
   
