@@ -1,13 +1,9 @@
-import React from "react";
-import {Redirect, Router, Switch} from "react-router-dom";
+import React from 'react';
 
+export default function NotFound() {
+  if (typeof window !== 'undefined') {
+    window.location = '/';
+  }
 
-
-const Index = () => (
-  <Router>
-    <Switch>
-        <Redirect to="/" />
-    </Switch>
-  </Router>
-);
-export default Index;
+  return null;
+}
