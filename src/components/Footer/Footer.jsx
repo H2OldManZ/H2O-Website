@@ -4,7 +4,10 @@ import React from "react";
 import PropTypes from "prop-types";
 // nodejs library that concatenates classes
 import classNames from "classnames";
-import { List, ListItem, withStyles } from "@material-ui/core";
+import { List, ListItem, withStyles, Tooltip, Button } from "@material-ui/core";
+
+// React icons
+import { FaTwitter, FaFacebook, FaInstagram } from 'react-icons/fa';
 
 // @material-ui/icons
 import Favorite from "@material-ui/icons/Favorite";
@@ -26,55 +29,71 @@ function Footer({ ...props }) {
       <div className={classes.container}>
         <div className={classes.left}>
           <List className={classes.list}>
+
             <ListItem className={classes.inlineBlock}>
-              <a
-                href="https://www.creative-tim.com/"
-                className={classes.block}
-                target="_blank"
+              <Tooltip
+                id="instagram-tooltip"
+                title="Follow us on Instagram"
+                placement={typeof window !== 'undefined' && window.innerWidth > 959 ? "top" : "left"}
+                classes={{ tooltip: classes.tooltip }}
               >
-                Creative Tim
-              </a>
+                <Button
+                  color="transparent"
+                  href="https://www.instagram.com/h2ochurchiu/"
+                  target="_blank"
+                  className={classes.navLink}
+                >
+                  <FaInstagram/>
+                </Button>
+              </Tooltip>
             </ListItem>
             <ListItem className={classes.inlineBlock}>
-              <a
-                href="https://www.creative-tim.com/presentation"
-                className={classes.block}
-                target="_blank"
+              <Tooltip
+                id="facebook-tooltip"
+                title="Find us on Facebook"
+                placement={typeof window !== 'undefined' && window.innerWidth > 959 ? "top" : "left"}
+                classes={{ tooltip: classes.tooltip }}
               >
-                About us
-              </a>
+                <Button
+                  color="transparent"
+                  href="https://www.facebook.com/h2ochurchiu/"
+                  target="_blank"
+                  className={classes.navLink}
+                >
+                  <FaFacebook/>
+                </Button>
+              </Tooltip>
             </ListItem>
             <ListItem className={classes.inlineBlock}>
-              <a
-                href="http://blog.creative-tim.com/"
-                className={classes.block}
-                target="_blank"
+              <Tooltip
+                id="twitter-tooltip"
+                title="Listen to us on Twitter"
+                placement={typeof window !== 'undefined' && window.innerWidth > 959 ? "top" : "left"}
+                classes={{ tooltip: classes.tooltip }}
               >
-                Blog
-              </a>
+                <Button
+                  color="transparent"
+                  href="https://www.instagram.com/CreativeTimOfficial"
+                  target="_blank"
+                  className={classes.navLink}
+                >
+                  <FaTwitter/>
+                </Button>
+              </Tooltip>
             </ListItem>
-            <ListItem className={classes.inlineBlock}>
-              <a
-                href="https://www.creative-tim.com/license"
-                className={classes.block}
-                target="_blank"
-              >
-                Licenses
-              </a>
-            </ListItem>
+            
           </List>
         </div>
         <div className={classes.right}>
-          &copy; {1900 + new Date().getYear()} , made with{" "}
-          <Favorite className={classes.icon} /> by{" "}
+          For more information, contact Pastor{" "}
           <a
-            href="https://www.creative-tim.com"
+            href="mailto:Kevin.Cody@h2oindiana.org"
             className={aClasses}
             target="_blank"
           >
-            Creative Tim
-          </a>{" "}
-          for a better web.
+            Kevin Cody
+          </a>{":   "}
+          1(812) 955-0451
         </div>
       </div>
     </footer>
