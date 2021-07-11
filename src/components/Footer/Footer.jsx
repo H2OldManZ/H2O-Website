@@ -73,7 +73,7 @@ function Footer({ ...props }) {
               >
                 <Button
                   color="transparent"
-                  href="https://www.instagram.com/CreativeTimOfficial"
+                  href="https://twitter.com/h2ochurchiu"
                   target="_blank"
                   className={classes.navLink}
                 >

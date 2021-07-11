@@ -17,48 +17,89 @@ import Button from "components/CustomButtons/Button.jsx";
 
 import headerLinksStyle from "assets/jss/material-kit-react/components/headerLinksStyle.jsx";
 
+import { useSiteData } from 'hooks/site-data.js'
+
 function HeaderLinks({ ...props }) {
+
   const { classes } = props;
+  
+  const navs = useSiteData().allGraphCmsNavBar.edges
+  var builtNavbar = []
+
+  for (let i = 0; i < navs.length; i++) {
+    
+    if (navs[i].node.isDropDown){
+
+      builtNavbar.push(
+      <ListItem className={classes.listItem}>
+      <CustomDropdown
+        noLiPadding
+        buttonText={navs[i].node.name}
+        buttonProps={{
+          className: classes.navLink,
+          color: "transparent"
+        }}
+        dropdownList={
+          createDropDowns(navs[i],classes)
+        }
+      />
+    </ListItem>
+    )
+
+    } else {
+
+      builtNavbar.push(
+
+        <ListItem className={classes.listItem}>
+          <Button
+            href= {navs[i].node.href.toLowerCase()}
+            color="transparent"
+            className={classes.navLink}
+          >
+            {navs[i].node.name}
+          </Button>
+      </ListItem>
+
+      )
+
+    }
+  
+  
+  }
+
+
+  
+
   return (
     <List className={classes.list}>
-
-      <ListItem className={classes.listItem}>
-        <CustomDropdown
-          noLiPadding
-          buttonText="About Us"
-          buttonProps={{
-            className: classes.navLink,
-            color: "transparent"
-          }}
-          buttonIcon={Apps}
-          dropdownList={[
-            <Link to="/" className={classes.dropdownLink}>
-              All components
-            </Link>,
-            <a
-              href="https://creativetimofficial.github.io/material-kit-react/#/documentation"
-              target="_blank"
-              className={classes.dropdownLink}
-            >
-              Documentation
-            </a>
-          ]}
-        />
-      </ListItem>
-
-      
-      <ListItem className={classes.listItem}>
-        <Button
-          href="https://www.creative-tim.com/product/material-kit-react"
-          color="transparent"
-          target="_blank"
-          className={classes.navLink}
-        >
-          <CloudDownload className={classes.icons} /> Download
-        </Button>
-      </ListItem>
+      {builtNavbar}
     </List>
   );
 }
 
 export default withStyles(headerLinksStyle)(HeaderLinks);
+
+
+
+
+function createDropDowns(data, classes){
+  var dropdowns = []
+
+  for (let i = 0; i < data.node.dropdownNavs.length; i++) {
+    dropdowns.push(
+      <Link to={data.node.dropdownHrefs[i].toLowerCase()} className={classes.dropdownLink}>
+        {data.node.dropdownNavs[i]}
+      </Link>
+    )
+    // <a
+    //   href="https://creativetimofficial.github.io/material-kit-react/#/documentation"
+    //   target="_blank"
+    //   className={classes.dropdownLink}
+    // >
+    //   Documentation
+    // </a>
+  }
+
+  return dropdowns;
+
+}

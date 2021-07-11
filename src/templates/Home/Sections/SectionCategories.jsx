@@ -5,7 +5,7 @@ import ButtonBase from '@material-ui/core/ButtonBase';
 import Container from '@material-ui/core/Container';
 import Typography from 'components/Typography/Typography.jsx';
 
-import { useStaticQuery, graphql } from 'gatsby'
+import { useSiteData } from 'hooks/site-data.js'
 
 const styles = (theme) => ({
   root: {
@@ -88,29 +88,9 @@ const styles = (theme) => ({
 
 function ProductCategories(props) {
 
-  const data = useStaticQuery(graphql`
-  query MyQuery {
-    allGraphCmsPanel(sort: {fields: order, order: ASC}) {
-      edges {
-        node {
-          id
-          href
-          name
-          order
-          width
-          image {
-            url
-          }
-        }
-      }
-    }
-  } 
-  `)
-
-  const panels = data.allGraphCmsPanel.edges
+  const panels = useSiteData().allGraphCmsPanel.edges
 
   var images = []
-  console.log(data.allGraphCmsPanel.edges[0].node.name);
 
   for (let i = 0; i < panels.length; i++) {
     images.push(
