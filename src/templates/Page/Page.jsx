@@ -34,9 +34,14 @@ import work5 from "assets/img/examples/clem-onojegaw.jpg";
 
 import profilePageStyle from "assets/jss/material-kit-react/views/profilePage.jsx";
 
+import { graphql } from "gatsby"
+
+
 class ProfilePage extends React.Component {
   render() {
-    const { classes, ...rest } = this.props;
+    const { classes, data, ...rest } = this.props;
+    console.log(data)
+    const pageData = data.graphCmsPage
     const imageClasses = classNames(
       classes.imgRaised,
       classes.imgRoundedCircle,
@@ -56,20 +61,20 @@ class ProfilePage extends React.Component {
           }}
           {...rest}
         />
-        <Parallax small filter image={require("assets/img/profile-bg.jpg")} />
+        <Parallax small filter image={studio1} />
         <div className={classNames(classes.main, classes.mainRaised)}>
           <div>
             <div className={classes.container}>
               <GridContainer justify="center">
                 <GridItem xs={12} sm={12} md={6}>
                   <div className={classes.profile}>
-                    <div>
+                    {/* <div>
                       <img src={profile} alt="..." className={imageClasses} />
-                    </div>
+                    </div> */}
                     <div className={classes.name}>
-                      <h3 className={classes.title}>Christian Louboutin</h3>
+                      <h2 className={classes.title2}>{pageData.pageName}</h2>
                       <h6>DESIGNER</h6>
-                      <Button justIcon link className={classes.margin5}>
+                      {/* <Button justIcon link className={classes.margin5}>
                         <FaTwitter/>
                       </Button>
                       <Button justIcon link className={classes.margin5}>
@@ -77,7 +82,7 @@ class ProfilePage extends React.Component {
                       </Button>
                       <Button justIcon link className={classes.margin5}>
                         <FaFacebook/>
-                      </Button>
+                      </Button> */}
                     </div>
                   </div>
                 </GridItem>
@@ -216,3 +221,14 @@ class ProfilePage extends React.Component {
 }
 
 export default withStyles(profilePageStyle)(ProfilePage);
+
+
+
+export const query = graphql`
+query ($id: String!){
+  graphCmsPage(id: {eq: $id}) {
+    pageName
+    slug
+  }
+}
+`

@@ -25,7 +25,7 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: node.slug.toLowerCase(),
       component: require.resolve(`./src/templates/Page/Page.jsx`),
-      //context: { slug: slug },
+      context: { id: node.id },
     })
     }
   })

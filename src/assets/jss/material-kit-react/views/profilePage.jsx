@@ -41,6 +41,17 @@ const profilePageStyle = {
     marginTop: "30px",
     minHeight: "32px",
     textDecoration: "none"
+    
+  },
+  title2: {
+    ...title,
+    display: "inline-block",
+    position: "relative",
+    marginTop: "30px",
+    marginBottom: "30px",
+    minHeight: "32px",
+    textDecoration: "none",
+    color: "#fff"
   },
   socials: {
     marginTop: "0",

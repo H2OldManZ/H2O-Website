@@ -34,6 +34,15 @@ export const useSiteData = () => {
             }
         }
 
+        allGraphCmsPage {
+          nodes {
+            id
+            pageName
+            slug
+            
+          }
+        }
+
         
       }
     `
