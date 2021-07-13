@@ -11,6 +11,7 @@ import "assets/scss/material-kit-react.scss?v=1.4.0";
 import 'typeface-roboto';
 import 'typeface-roboto-slab';
 
+import { graphql } from "gatsby"
 
 // @material-ui/icons
 // core components
@@ -23,13 +24,13 @@ import Parallax from "components/Parallax/Parallax.jsx";
 import HeaderLinks from "components/Header/HeaderLinks.jsx";
 import SectionCategories from "./Sections/SectionCategories.jsx";
 
-import img from "assets/img/banner.jpg";
 
 import componentsStyle from "assets/jss/material-kit-react/views/components.jsx";
 
 class Components extends React.Component {
   render() {
-    const { classes, ...rest } = this.props;
+    const { classes, data, ...rest } = this.props;
+    const pageData = data.graphCmsPage
     return (
       <div>
         <Header
@@ -43,14 +44,14 @@ class Components extends React.Component {
           }}
           {...rest}
         />
-        <Parallax image={img}>
+        <Parallax image={pageData.backgroundImage.url}>
           <div className={classes.container}>
             <GridContainer>
               <GridItem>
                 <div className={classes.brand}>
-                  <h1 className={classes.title}>H2O Church</h1>
+                  <h1 className={classes.title}>{pageData.title}</h1>
                   <h3 className={classes.subtitle}>
-                    at Indiana University, A Church for the Campus.
+                    {pageData.content[0]}
                   </h3>
                 </div>
               </GridItem>
@@ -68,3 +69,23 @@ class Components extends React.Component {
 }
 
 export default withStyles(componentsStyle)(Components);
+
+
+export const query = graphql`
+query ($id: String!){
+  graphCmsPage(id: {eq: $id}) {
+    backgroundImage {
+      url
+    }
+    content
+    contentImages {
+      url
+    }
+    id
+    pageName
+    pageTemplate
+    title
+    slug
+  }
+}
+`
