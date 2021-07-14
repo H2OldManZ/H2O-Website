@@ -1,7 +1,14 @@
 fragment Page on Page {
   stage
+  enabled
+  publishedAt
+  slug
   remoteId: id
   createdAt
+  updatedAt
+  pageName
+  content
+  title
   createdBy {
     ... on User {
       remoteTypeName: __typename
@@ -9,26 +16,6 @@ fragment Page on Page {
       stage
     }
   }
-  updatedAt
-  updatedBy {
-    ... on User {
-      remoteTypeName: __typename
-      remoteId: id
-      stage
-    }
-  }
-  publishedAt
-  publishedBy {
-    ... on User {
-      remoteTypeName: __typename
-      remoteId: id
-      stage
-    }
-  }
-  pageName
-  enabled
-  slug
-  title
   backgroundImage {
     ... on Asset {
       remoteTypeName: __typename
@@ -37,8 +24,6 @@ fragment Page on Page {
       stage
     }
   }
-  pageTemplate
-  content
   contentImages {
     ... on Asset {
       remoteTypeName: __typename
@@ -47,5 +32,19 @@ fragment Page on Page {
       stage
     }
   }
-  test
+  updatedBy {
+    ... on User {
+      remoteTypeName: __typename
+      remoteId: id
+      stage
+    }
+  }
+  publishedBy {
+    ... on User {
+      remoteTypeName: __typename
+      remoteId: id
+      stage
+    }
+  }
+  pageTemplate
 }

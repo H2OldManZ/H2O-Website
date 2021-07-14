@@ -2,22 +2,14 @@ fragment NavBar on NavBar {
   stage
   remoteId: id
   createdAt
-  createdBy {
-    ... on User {
-      remoteTypeName: __typename
-      remoteId: id
-      stage
-    }
-  }
   updatedAt
-  updatedBy {
-    ... on User {
-      remoteTypeName: __typename
-      remoteId: id
-      stage
-    }
-  }
   publishedAt
+  order
+  name
+  isDropDown
+  href
+  dropdownNavs
+  dropdownHrefs
   publishedBy {
     ... on User {
       remoteTypeName: __typename
@@ -25,10 +17,18 @@ fragment NavBar on NavBar {
       stage
     }
   }
-  order
-  name
-  href
-  isDropDown
-  dropdownNavs
-  dropdownHrefs
+  createdBy {
+    ... on User {
+      remoteTypeName: __typename
+      remoteId: id
+      stage
+    }
+  }
+  updatedBy {
+    ... on User {
+      remoteTypeName: __typename
+      remoteId: id
+      stage
+    }
+  }
 }

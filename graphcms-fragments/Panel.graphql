@@ -2,6 +2,12 @@ fragment Panel on Panel {
   stage
   remoteId: id
   createdAt
+  updatedAt
+  publishedAt
+  order
+  name
+  href
+  width
   createdBy {
     ... on User {
       remoteTypeName: __typename
@@ -9,7 +15,6 @@ fragment Panel on Panel {
       stage
     }
   }
-  updatedAt
   updatedBy {
     ... on User {
       remoteTypeName: __typename
@@ -17,7 +22,6 @@ fragment Panel on Panel {
       stage
     }
   }
-  publishedAt
   publishedBy {
     ... on User {
       remoteTypeName: __typename
@@ -25,10 +29,6 @@ fragment Panel on Panel {
       stage
     }
   }
-  order
-  name
-  href
-  width
   image {
     ... on Asset {
       remoteTypeName: __typename

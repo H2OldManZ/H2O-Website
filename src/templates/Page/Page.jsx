@@ -18,6 +18,9 @@ import Parallax from "components/Parallax/Parallax.jsx";
 
 
 import AboutUs from "./Sections/AboutUs.jsx";
+import WhatWeBelieve from "./Sections/WhatWeBelieve.jsx";
+import OurTeam from "./Sections/OurTeam.jsx";
+import Partnerships from "./Sections/Partnerships.jsx";
 
 import profilePageStyle from "assets/jss/material-kit-react/views/profilePage.jsx";
 
@@ -68,6 +71,18 @@ function getTemplate(pageData, classes){
 
   if (pageData.pageTemplate=="AboutUs"){
     return [<AboutUs pageData={pageData} classes={classes} />]
+  }
+
+  if (pageData.pageTemplate=="WhatWeBelieve"){
+    return [<WhatWeBelieve pageData={pageData} classes={classes} />]
+  }
+
+  if (pageData.pageTemplate=="OurTeam"){
+    return [<OurTeam pageData={pageData} classes={classes} />]
+  }
+
+  if (pageData.pageTemplate=="Partnerships"){
+    return [<Partnerships pageData={pageData} classes={classes} />]
   }
 
 }
