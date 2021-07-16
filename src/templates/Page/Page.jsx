@@ -21,6 +21,7 @@ import AboutUs from "./Sections/AboutUs.jsx";
 import WhatWeBelieve from "./Sections/WhatWeBelieve.jsx";
 import OurTeam from "./Sections/OurTeam.jsx";
 import Partnerships from "./Sections/Partnerships.jsx";
+import GetConnected from "./Sections/GetConnected.jsx";
 
 import profilePageStyle from "assets/jss/material-kit-react/views/profilePage.jsx";
 
@@ -83,6 +84,10 @@ function getTemplate(pageData, classes){
 
   if (pageData.pageTemplate=="Partnerships"){
     return [<Partnerships pageData={pageData} classes={classes} />]
+  }
+
+  if (pageData.pageTemplate=="GetConnected"){
+    return [<GetConnected pageData={pageData} classes={classes} />]
   }
 
 }
