@@ -24,6 +24,9 @@ import Partnerships from "./Sections/Partnerships.jsx";
 import GetConnected from "./Sections/GetConnected.jsx";
 import CommunityGroups from "./Sections/CommunityGroups.jsx";
 import CommunityEngagement from "./Sections/CommunityEngagement.jsx";
+import WhatToExpect from "./Sections/WhatToExpect.jsx";
+import Sermons from "./Sections/Sermons.jsx";
+import Give from "./Sections/Give.jsx";
 
 import profilePageStyle from "assets/jss/material-kit-react/views/profilePage.jsx";
 
@@ -98,6 +101,18 @@ function getTemplate(pageData, classes){
 
   if (pageData.pageTemplate=="CommunityEngagement"){
     return [<CommunityEngagement pageData={pageData} classes={classes} />]
+  }
+
+  if (pageData.pageTemplate=="WhatToExpect"){
+    return [<WhatToExpect pageData={pageData} classes={classes} />]
+  }
+
+  if (pageData.pageTemplate=="Sermons"){
+    return [<Sermons pageData={pageData} classes={classes} />]
+  }
+
+  if (pageData.pageTemplate=="Give"){
+    return [<Give pageData={pageData} classes={classes} />]
   }
 
 

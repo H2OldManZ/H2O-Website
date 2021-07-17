@@ -6,16 +6,16 @@ import classNames from "classnames";
 import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
 
+import Paper from '@material-ui/core/Paper';
 
-const AboutUs = ({ pageData, classes }) => {
+import { useSiteData } from 'hooks/site-data.js'
 
-    const imageClasses = classNames(
-        classes.imgRaised,
-        classes.imgRoundedCircle,
-        classes.imgFluid
-      );
-    const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
 
+
+const Page = ({ pageData, classes }) => {
+    const members = useSiteData().allGraphCmsTeamMember.edges
+
+    console.log(members);
     return(
         <div className={classes.container}>
             <GridContainer justify="center">
@@ -23,171 +23,96 @@ const AboutUs = ({ pageData, classes }) => {
                 <div className={classes.profile}>
                 <div className={classes.name}>
                     <h2 className={classes.title2}>{pageData.title}</h2>
-                    <h3>{pageData.content[0]}</h3>
-                    <h4>{pageData.content[1]}</h4>
                 </div>
                 </div>
             </GridItem>
             </GridContainer>
-            <div className={classes.description}>
-            <h6>
-                {pageData.content[2]} {" "}
-            </h6>
-            </div>
 
             <GridContainer justify="center">
-            <GridItem xs={12} sm={12} md={6}>
-                <div className={classes.profile}>
-                <div className={classes.name}>
-                    <h2 className={classes.title2}>{" "}</h2>
-                    <h3>{pageData.content[3]}</h3>
-                    <h4>{pageData.content[4]}</h4>
-                </div>
-                </div>
-            </GridItem>
-            </GridContainer>
-            <div className={classes.description}>
-            <h6>
-                {pageData.content[5]} {" "}
-            </h6>
-            </div>
 
-            <GridContainer justify="center">
-            <GridItem xs={12} sm={12} md={6}>
-                <div className={classes.profile}>
-                <div className={classes.name}>
-                    <h2 className={classes.title2}>{" "}</h2>
-                    <h3>{pageData.content[6]}</h3>
-                    <h4>{pageData.content[7]}</h4>
-                </div>
-                </div>
-            </GridItem>
-            </GridContainer>
-            <div className={classes.description}>
-            <h6>
-                {pageData.content[8]} {" "}
-            </h6>
-            </div>
+                {buildTeam(members, classes)}
 
-            <GridContainer justify="center">
-            <GridItem xs={12} sm={12} md={6}>
-                <div className={classes.profile}>
-                <div className={classes.name}>
-                    <h2 className={classes.title2}>{" "}</h2>
-                    <h3>{pageData.content[9]}</h3>
-                    <h4>{pageData.content[10]}</h4>
-                </div>
-                </div>
-            </GridItem>
-            </GridContainer>
-            <div className={classes.description}>
-            <h6>
-                {pageData.content[11]} {" "}
-            </h6>
-            </div>
 
-            <GridContainer justify="center">
-            <GridItem xs={12} sm={12} md={6}>
-                <div className={classes.profile}>
-                <div className={classes.name}>
-                    <h2 className={classes.title2}>{" "}</h2>
-                    <h3>{pageData.content[12]}</h3>
-                    <h4>{pageData.content[13]}</h4>
-                </div>
-                </div>
-            </GridItem>
             </GridContainer>
-            <div className={classes.description}>
-            <h6>
-                {pageData.content[14]} {" "}
-            </h6>
-            </div>
-
-            <GridContainer justify="center">
-            <GridItem xs={12} sm={12} md={6}>
-                <div className={classes.profile}>
-                <div className={classes.name}>
-                    <h2 className={classes.title2}>{" "}</h2>
-                    <h3>{pageData.content[15]}</h3>
-                    <h4>{pageData.content[16]}</h4>
-                </div>
-                </div>
-            </GridItem>
-            </GridContainer>
-            <div className={classes.description}>
-            <h6>
-                {pageData.content[17]} {" "}
-            </h6>
-            </div>
-
-            <GridContainer justify="center">
-            <GridItem xs={12} sm={12} md={6}>
-                <div className={classes.profile}>
-                <div className={classes.name}>
-                    <h2 className={classes.title2}>{" "}</h2>
-                    <h3>{pageData.content[18]}</h3>
-                    <h4>{pageData.content[19]}</h4>
-                </div>
-                </div>
-            </GridItem>
-            </GridContainer>
-            <div className={classes.description}>
-            <h6>
-                {pageData.content[20]} {" "}
-            </h6>
-            </div>
-
-            <GridContainer justify="center">
-            <GridItem xs={12} sm={12} md={6}>
-                <div className={classes.profile}>
-                <div className={classes.name}>
-                    <h2 className={classes.title2}>{" "}</h2>
-                    <h3>{pageData.content[21]}</h3>
-                    <h4>{pageData.content[22]}</h4>
-                </div>
-                </div>
-            </GridItem>
-            </GridContainer>
-            <div className={classes.description}>
-            <h6>
-                {pageData.content[23]} {" "}
-            </h6>
-            </div>
-
-            <GridContainer justify="center">
-            <GridItem xs={12} sm={12} md={6}>
-                <div className={classes.profile}>
-                <div className={classes.name}>
-                    <h2 className={classes.title2}>{" "}</h2>
-                    <h3>{pageData.content[24]}</h3>
-                    <h4>{pageData.content[25]}</h4>
-                </div>
-                </div>
-            </GridItem>
-            </GridContainer>
-            <div className={classes.description}>
-            <h6>
-                {pageData.content[26]} {" "}
-            </h6>
-            </div>
-
-            <GridContainer justify="center" >
-            <GridItem xs={12} sm={12} md={6}>
-                <div className={classes.profile}>
-                <div className={classes.name}>
-                    <h2 className={classes.title2}>{" "}</h2>
-                    <h3>{pageData.content[27]}</h3>
-                    <h4>{pageData.content[28]}</h4>
-                </div>
-                </div>
-            </GridItem>
-            </GridContainer>
-            <div className={classes.description}>
-            <h6>
-                {pageData.content[29]} {" "}
-            </h6>
-            </div>        
         </div>
     )
 }
-export default AboutUs
+export default Page
+
+
+function buildTeam(data, classes){
+
+    var builtTeam = [];
+
+    for (let i = 0; i < data.length; i++) {
+        var name = createName(data[i])
+
+        if (isCouple(data[i])){
+            builtTeam.push(
+                
+                <GridItem xs={6} sm={4} md={3}>
+                    <Paper onClick="somethin">
+                        <div className={classes.member}>
+                            <img
+                                alt="..."
+                                src={data[i].node.picture.url}
+                                className={classes.sermonImage}
+                            />
+                            <h3>{name}</h3>
+                            {/*<p>{data[i].node.hometownS[0] + " and " + data[i].node.hometownS[1]}</p>*/}
+                        </div>
+                    </Paper>
+                </GridItem>
+                
+            )
+        }else{
+            builtTeam.push(
+                <GridItem xs={6} sm={4} md={3}>
+                    <Paper onClick="somethin">
+                        <div className={classes.member}>
+                            <img
+                                alt="..."
+                                src={data[i].node.picture.url}
+                                className={classes.sermonImage}
+                            />
+                        
+                            <h3>{name}</h3>
+                            {/*<p>{data[i].node.hometownS[0]}</p>*/}
+                            <h3>{}</h3>
+                
+                        </div>
+                    </Paper>
+                </GridItem>
+            )
+        }
+    }
+
+    return builtTeam;
+
+}
+
+function isCouple(data){
+
+    if (data.node.firstNameS.length > 1){
+        return true
+    }
+    return false
+}
+
+
+function createName(data){
+
+    var name = ""
+
+    if (data.node.firstNameS.length > 1){
+
+        name = data.node.firstNameS[0] + " and " + data.node.firstNameS[1] + " " + data.node.lastName
+
+    } else {
+
+        name = data.node.firstNameS[0] + " " + data.node.lastName
+    }
+
+    return name;
+
+}

@@ -1,11 +1,18 @@
-fragment Person on Person {
+fragment TeamMember on TeamMember {
   stage
   remoteId: id
   createdAt
   updatedAt
   publishedAt
-  name
-  description
+  lastName
+  firstNameS
+  hometownS
+  study
+  funFact
+  why
+  freeTime
+  role
+  email
   createdBy {
     ... on User {
       remoteTypeName: __typename
@@ -27,7 +34,7 @@ fragment Person on Person {
       stage
     }
   }
-  image {
+  picture {
     ... on Asset {
       remoteTypeName: __typename
       remoteId: id

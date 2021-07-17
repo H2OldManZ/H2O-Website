@@ -43,6 +43,26 @@ export const useSiteData = () => {
           }
         }
 
+        allGraphCmsTeamMember(sort: {fields: lastName, order: ASC}) {
+            edges {
+              node {
+                id
+                firstNameS
+                freeTime
+                email
+                funFact
+                hometownS
+                lastName
+                study
+                role
+                why
+                picture {
+                  url
+                }
+              }
+            }
+          }
+
         
       }
     `

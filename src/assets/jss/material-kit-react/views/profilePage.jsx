@@ -67,6 +67,13 @@ const profilePageStyle = {
   navWrapper: {
     margin: "20px auto 50px auto",
     textAlign: "center"
+  },
+  sermonImage: {
+    width:"100%"
+
+  },
+  container1: {
+    textAlign : "center"
   }
 };
 
