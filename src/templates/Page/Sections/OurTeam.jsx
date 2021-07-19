@@ -6,16 +6,21 @@ import classNames from "classnames";
 import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
 
+import MemberCardSingle from "components/CustomZ/MemberCardSingle.jsx";
+import MemberCardDouble from "components/CustomZ/MemberCardDouble.jsx";
+
 import Paper from '@material-ui/core/Paper';
 
+
 import { useSiteData } from 'hooks/site-data.js'
+
+
 
 
 
 const Page = ({ pageData, classes }) => {
     const members = useSiteData().allGraphCmsTeamMember.edges
 
-    console.log(members);
     return(
         <div className={classes.container}>
             <GridContainer justify="center">
@@ -50,39 +55,20 @@ function buildTeam(data, classes){
         if (isCouple(data[i])){
             builtTeam.push(
                 
-                <GridItem xs={6} sm={4} md={3}>
-                    <Paper onClick="somethin">
-                        <div className={classes.member}>
-                            <img
-                                alt="..."
-                                src={data[i].node.picture.url}
-                                className={classes.sermonImage}
-                            />
-                            <h3>{name}</h3>
-                            {/*<p>{data[i].node.hometownS[0] + " and " + data[i].node.hometownS[1]}</p>*/}
-                        </div>
-                    </Paper>
-                </GridItem>
+                   <MemberCardDouble
+                    classes = {classes}
+                    name = {name}
+                    data = {data[i]}
+                />
                 
             )
         }else{
             builtTeam.push(
-                <GridItem xs={6} sm={4} md={3}>
-                    <Paper onClick="somethin">
-                        <div className={classes.member}>
-                            <img
-                                alt="..."
-                                src={data[i].node.picture.url}
-                                className={classes.sermonImage}
-                            />
-                        
-                            <h3>{name}</h3>
-                            {/*<p>{data[i].node.hometownS[0]}</p>*/}
-                            <h3>{}</h3>
-                
-                        </div>
-                    </Paper>
-                </GridItem>
+                <MemberCardSingle
+                    classes = {classes}
+                    name = {name}
+                    data = {data[i]}
+                />
             )
         }
     }

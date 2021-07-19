@@ -73,7 +73,33 @@ const profilePageStyle = {
 
   },
   container1: {
-    textAlign : "center"
+    textAlign : "center",
+    justifyContent:"center"
+  },
+  hidden:{
+    display: "none"
+  },
+  member: {
+    textAlign: "center"
+  },
+  memberPopover:{
+    width:"300px",
+    margin: "10px"
+  },
+  memberImage:{
+    width:"100%"
+  },
+  memberText:{
+    margin:"20px",
+    justifyContent:"center"
+  },
+  memberModal:{
+    position: "absolute",
+    width: "60vw",
+    backgroundColor: "white",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)"
   }
 };
 
