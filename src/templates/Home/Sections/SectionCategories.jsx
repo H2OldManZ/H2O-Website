@@ -5,6 +5,8 @@ import ButtonBase from '@material-ui/core/ButtonBase';
 import Container from '@material-ui/core/Container';
 import Typography from 'components/Typography/Typography.jsx';
 
+import Button from "components/CustomButtons/Button.jsx";
+
 import { useSiteData } from 'hooks/site-data.js'
 
 const styles = (theme) => ({
@@ -109,9 +111,12 @@ function ProductCategories(props) {
   return (
     
     <Container className={classes.root} component="section">
-      <Typography variant="h4" marked="center" align="center" component="h2">
+      <Typography variant="h4" align="center" component="h2">
         &nbsp;
       </Typography>
+{/*      <Typography variant="h4" marked="center" align="center" component="h2">
+        &nbsp;
+      </Typography>*/}
       <div className={classes.images}>
         {images.map((image) => (
           <ButtonBase

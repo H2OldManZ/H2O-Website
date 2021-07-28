@@ -21,7 +21,7 @@ const AboutUs = ({ pageData, classes }) => {
     return(
         <div className={classes.container}>
             <GridContainer justify="center">
-            <GridItem xs={12} sm={12} md={6}>
+            <GridItem xs={12} sm={12} md={8}>
                 <div className={classes.profile}>
                 <div className={classes.name}>
                     <h2 className={classes.title2}>{pageData.title}</h2>
@@ -37,7 +37,7 @@ const AboutUs = ({ pageData, classes }) => {
             </div>
 
             <GridContainer justify="center">
-            <GridItem xs={12} sm={12} md={6}>
+            <GridItem xs={12} sm={12} md={8}>
                 <div className={classes.profile}>
 
                 <div className={classes.name}>
@@ -54,7 +54,7 @@ const AboutUs = ({ pageData, classes }) => {
             </div>
 
             <GridContainer justify="center">
-            <GridItem xs={12} sm={12} md={6}>
+            <GridItem xs={12} sm={12} md={8}>
                 <div className={classes.profile}>
                 <div className={classes.name}>
                     <h2 className={classes.title2}>{" "}</h2>

@@ -101,26 +101,6 @@ const profilePageStyle = {
     left: "50%",
     transform: "translate(-50%, -50%)"
   },
-
-  //What TO Expect
-  what_to_expect_paper:{
-    backgroundColor: "#e6e6e6",
-    color: "black",
-    margin: "10px"
-  },
-  what_to_expect_paper_content:{
-    textAlign: "center",
-    padding: "2%",
-    paddingTop: "1%"
-  },
-  what_to_expect_bottom:{
-    textAlign: "center",
-    padding: "2%"
-  },
-
-
-
-  // GIVE
   give_paper:{
     backgroundColor: "#e6e6e6",
     color: "black",
@@ -129,14 +109,13 @@ const profilePageStyle = {
   give_paper_contents:{
     textAlign: "center",
     padding: "2%",
-    paddingTop: "1%"
+    paddingTop: "1%",
+    height:"280px"
   },
   give_bottom:{
     textAlign: "center",
     padding:"2%"
   }
-
-
 };
 
 export default profilePageStyle;
