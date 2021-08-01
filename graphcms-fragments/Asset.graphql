@@ -11,13 +11,6 @@ fragment Asset on Asset {
   width
   size
   mimeType
-  pictureTeamMember {
-    ... on TeamMember {
-      remoteTypeName: __typename
-      remoteId: id
-      stage
-    }
-  }
   createdBy {
     ... on User {
       remoteTypeName: __typename
@@ -55,6 +48,13 @@ fragment Asset on Asset {
   }
   contentImagesPage {
     ... on Page {
+      remoteTypeName: __typename
+      remoteId: id
+      stage
+    }
+  }
+  pictureTeamMember {
+    ... on TeamMember {
       remoteTypeName: __typename
       remoteId: id
       stage

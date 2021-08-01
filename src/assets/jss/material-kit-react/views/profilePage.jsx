@@ -102,6 +102,24 @@ const profilePageStyle = {
     transform: "translate(-50%, -50%)"
   },
 
+  //COMMUNITY GROUPS
+  community_groups_paper:{
+    backgroundColor: "#e6e6e6",
+    color: "black",
+    margin: "10px"
+  },
+  community_groups_paper_content:{
+    textAlign: "center",
+    padding: "2%",
+    paddingTop: "1%"
+  },
+  what_to_expect_bottom:{
+    textAlign: "center",
+    padding: "2%"
+  },
+
+
+
   //What TO Expect
   what_to_expect_paper:{
     backgroundColor: "#e6e6e6",

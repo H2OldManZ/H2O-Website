@@ -6,17 +6,10 @@ fragment NavBar on NavBar {
   publishedAt
   order
   name
-  isDropDown
   href
+  isDropDown
   dropdownNavs
   dropdownHrefs
-  publishedBy {
-    ... on User {
-      remoteTypeName: __typename
-      remoteId: id
-      stage
-    }
-  }
   createdBy {
     ... on User {
       remoteTypeName: __typename
@@ -25,6 +18,13 @@ fragment NavBar on NavBar {
     }
   }
   updatedBy {
+    ... on User {
+      remoteTypeName: __typename
+      remoteId: id
+      stage
+    }
+  }
+  publishedBy {
     ... on User {
       remoteTypeName: __typename
       remoteId: id

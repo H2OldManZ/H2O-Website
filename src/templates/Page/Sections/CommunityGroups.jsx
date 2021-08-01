@@ -4,9 +4,34 @@ import React from "react";
 import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
 import Button from "components/CustomButtons/Button.jsx";
+import Paper from '@material-ui/core/Paper';
+import Link from '@material-ui/core/Link';
+
+import { useSiteData } from 'hooks/site-data.js'
 
 const Page = ({ pageData, classes }) => {
 
+    const cgs = useSiteData().allGraphCmsCommunityGroup.nodes
+    var cgpanels = []
+
+    for (let i = 0; i < cgs.length; i++) {
+        cgpanels.push(
+            <GridItem xs={12} sm={12} md={6}>
+                <Paper>
+                    <h3> {cgs[i].name} </h3>
+                    <h5> Contact(s) </h5>
+                    {createEmails(cgs[i])}
+                    <h5> Time </h5>
+                    <p> {cgs[i].time} </p>
+                    <h5> Location </h5>
+                    <p> {cgs[i].location} </p>
+                </Paper>
+            </GridItem>
+        )
+      
+      }
+
+    console.log(cgs)
 
     return(
         <div className={classes.container}>
@@ -43,33 +68,38 @@ const Page = ({ pageData, classes }) => {
             </GridContainer>
             <GridContainer justify="center">
                 <GridItem xs={12} sm={12} md={6}>
-                    <div className={classes.profile}>
-                    <div >
-                        <h3>{pageData.content[7]}</h3>
-                        <p>{pageData.content[8]}</p>
-                        <Button color="primary" href={pageData.content[10].toLowerCase()}>
-                            {pageData.content[9]}
-                        </Button>
-                       
-                    </div>
-                    </div>
+                    <Paper className={classes.community_groups_paper}>
+                        <div className={classes.community_groups_paper_content}>
+                            <h3>{pageData.content[7]}</h3>
+                            <p>{pageData.content[8]}</p>
+                            <Button color="primary" href={pageData.content[10].toLowerCase()}>
+                                {pageData.content[9]}
+                            </Button>
+                        </div>
+                    </Paper>
                 </GridItem>
             </GridContainer>
             <GridContainer justify="center">
-                <GridItem xs={12} sm={12} md={6}>
+                <GridItem xs={12} sm={12} md={12}>
                     <div className={classes.profile}>
-                    <div >
                         <h2>{pageData.content[11]}</h2>
-                       
-                    </div>
+                        <GridContainer>
+                            {cgpanels}
+                        </GridContainer>
                     </div>
                 </GridItem>
             </GridContainer>
-
-            
-            
-
         </div>
     )
 }
 export default Page
+
+function createEmails(data){
+    var emails = []
+    for (let i = 0; i < data.contactNames.length; i++) {
+        emails.push(
+            <p><strong>{data.contactNames[i]}</strong>{" : "}<Link href={data.contactEmails[i]}>{data.contactEmails[i]}</Link></p>
+        )
+    }
+    return emails
+}

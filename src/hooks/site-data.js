@@ -63,6 +63,15 @@ export const useSiteData = () => {
             }
           }
 
+        allGraphCmsCommunityGroup(sort: {fields: order, order: ASC}) {
+          nodes {
+            name
+            contactNames
+            contactEmails
+            time
+            location
+          }
+        }
         
       }
     `

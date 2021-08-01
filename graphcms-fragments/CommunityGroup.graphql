@@ -1,14 +1,15 @@
-fragment Page on Page {
+fragment CommunityGroup on CommunityGroup {
   stage
   remoteId: id
   createdAt
   updatedAt
   publishedAt
-  pageName
-  enabled
-  slug
-  title
-  content
+  name
+  order
+  contactNames
+  contactEmails
+  time
+  location
   createdBy {
     ... on User {
       remoteTypeName: __typename
@@ -30,21 +31,4 @@ fragment Page on Page {
       stage
     }
   }
-  backgroundImage {
-    ... on Asset {
-      remoteTypeName: __typename
-      remoteId: id
-      locale
-      stage
-    }
-  }
-  contentImages {
-    ... on Asset {
-      remoteTypeName: __typename
-      remoteId: id
-      locale
-      stage
-    }
-  }
-  pageTemplate
 }
