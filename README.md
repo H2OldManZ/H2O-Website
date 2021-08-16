@@ -1,2 +1,2 @@
 # H2O-Website
-Gatsby, React, MaterialUI, Test
+Gatsby, React, MaterialUI
