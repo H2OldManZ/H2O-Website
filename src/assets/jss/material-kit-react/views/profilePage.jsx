@@ -102,6 +102,13 @@ const profilePageStyle = {
     transform: "translate(-50%, -50%)"
   },
 
+  //OUR TEAM
+  memberMedia: {
+    height: 0,
+    paddingTop: '56.25%', // 16:9,
+    marginTop:'30'
+  },
+
   //COMMUNITY GROUPS
   community_groups_paper:{
     backgroundColor: "#e6e6e6",
